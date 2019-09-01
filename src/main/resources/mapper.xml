@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.eagle.projectserver.mapper.ProjInfoMapper">
+ 
+    <!-- 统计查询 -->
+    <select id="count" resultType="long">
+       select count(*) from projectinfo
+    </select>
+ 
+    <!-- 分页查询公告 -->
+    <select id="findByPage" resultType="projectinfo">
+       select * from projectinfo limit #{page},#{rows}
+    </select>
+
+    <!-- 根据um查员工信息 -->
+    <select id="findByum" resultType="staffinfo">
+        select * from staffinfo where um = #{um}
+    </select>
+</mapper>
